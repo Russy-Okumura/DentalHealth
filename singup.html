@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header" id="header">
+        <div><img src="Imagenes/logoinclunetspace.png" alt="Inclunet Space logo" height="60" width="60"></div>
+        <div>
+            <nav>
+                <ul>
+                    <li><a href="quienes somos.html">Quiénes somos</a></li>
+                    <li><a href="voluntariado.html">Voluntariado</a></li>
+                    <li><a href="organizaciones.html">Organizaciones</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="sigin">
+        <div class="sigin-container">
+            <div class="image-form-section">
+                <img src="ruta/a/tu-imagen.png" alt="Imagen de registro">
+            </div>
+            <div class="form-section">
+                <h2>Crea tu cuenta de manera gratuita</h2>
+                <form action="singup.php" method="POST">
+
+                    <!-- Campos específicos para voluntario -->
+                    <div id="voluntario-fields">
+                        <label for="Nombre">Nombre*</label>
+                        <input type="text" id="Nombre" name="Nombre" required>
+ 
+                        <label for="telefono">Teléfono*</label>
+                        <input type="tel" id="telefono" name="telefono">
+                    </div>
+
+                    <!-- Campos comunes para ambos tipos de usuario -->
+                    <label for="correo">Correo electrónico*</label>
+                    <input type="email" id="correo" name="correo" required>
+
+                    <label for="contraseña">Contraseña*</label>
+                    <input type="password" id="contrasena" name="contrasena" required>
+
+                    <label for="confirmar-contrasenia">Confirmar contraseña*</label>
+                    <input type="password" id="confirmar-contrasena" name="confirmar-contrasena" required>
+                
+                    <button type="submit">Registrarse</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+<footer>
+    <div class="footer-content">
+        <h3>Inclunet Space</h3>
+        <p>Conéctate con nosotros y sé parte del cambio social.</p>
+        <ul class="footer-links">
+            <li><a href="como funciona.html">Cómo funciona</a></li>
+            <li><a href="quienes somos.html">Quiénes somos</a></li>
+            <li><a href="voluntariado.html">Voluntariado</a></li>
+            <li><a href="organizaciones.html">Organizaciones</a></li>
+            <li><a href="#">App. móvil</a></li>
+        </ul>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Inclunet Space. Todos los derechos reservados.</p>
+    </div>
+</footer>
+</html>

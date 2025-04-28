@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>cita</title>
+</head>
+<body>
+    <form method="POST" action="registrar_cita.php">
+        <label for="fecha">Fecha y hora de la cita:</label>
+        <input type="datetime-local" name="fecha" required>
+    
+      <label for="motivo">Motivo de la cita:</label>
+        <textarea name="motivo" required></textarea>
+
+        <input type="submit" value="Reservar Cita">
+    </form>
+<body>

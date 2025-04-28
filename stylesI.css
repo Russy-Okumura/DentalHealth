@@ -1,0 +1,286 @@
+/* Hero Section */
+.hero {
+    height: 100vh;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 50px;
+    justify-content: center;
+    text-align: left;
+}
+.hero img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+.hero h1 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color:#F48C06;
+}
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color:#ffffff;
+    text-align: left;
+}
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color:#ffffff;
+}
+
+/* beneficios de la plataforma */
+.beneficio-plataforma {
+    background-color: #ffffff;
+    padding: 50px 20px;
+    text-align: center;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.beneficio-cards {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.beneficio-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+.beneficio-card:hover {
+    transform: translateY(-5px);
+}
+  
+.icon-card1 {
+    background-color: #4c73ff;  
+    border-radius: 50%;         
+    padding: 15px;              
+    display: inline-block;      
+    width: 60px;                
+    height: 60px;                        
+    color: #ffffff;              
+    font-size: 20px;
+    position: relative;
+    top: -50px; 
+}
+.icon-card1 i {
+    vertical-align: middle;
+}
+.icon-card2 {
+    background-color: #00CBB8;  
+    border-radius: 50%;         
+    padding: 16px;              
+    display: inline-block;      
+    width: 60px;                
+    height: 60px;                        
+    color: #ffffff;              
+    font-size: 20px;
+    position: relative;
+    top: -50px; 
+}
+.icon-card2 i {
+    vertical-align: middle;
+}
+.icon-card3 {
+    background-color: #29B9E7;  
+    border-radius: 50%;         
+    padding: 16px;              
+    display: inline-block;      
+    width: 60px;                
+    height: 60px;                        
+    color: #ffffff;              
+    font-size: 20px;
+    position: relative;
+    top: -50px; 
+}
+.icon-card3 i {
+    vertical-align: middle;
+} 
+.beneficio-card h3 {
+    font-size: 1.5rem;
+    color: #2F327D;
+    margin-bottom: 10px;
+} 
+.beneficio-card p {
+    line-height: 1.5;
+}
+
+/* sobre nuestra plataforma*/
+.nosotros-platforma {
+    text-align: center;
+    padding: 40px;
+    background-color: #ffffff;
+} 
+.nosotros-platforma p {
+    line-height: 1.6;
+}
+.cards-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.card-nosotrosv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    background-image: url('Imagenes/para_voluntarios.webp');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+.card-nosotroso {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    background-image: url('Imagenes/para_organizaciones.webp');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+.card-nosotrosv h3, .card-nosotroso h3 {
+    font-size: 22px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+.card-nosotrosv:hover, .card-nosotroso:hover {
+    transform: scale(1.05);
+}
+/* botones de las tarjetas*/
+.cta-nosotrosv {
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border: 2px solid #ffffff;
+    border-radius: 80px;
+    background-color: transparent;
+    color: #ffffff;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.cta-nosotroso {
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border: 2px solid rgba(28, 216, 237, 0.9);
+    border-radius: 80px;
+    background-color: rgba(28, 216, 237, 0.9);
+    color: #FFFFFF;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+
+.container-como-funciona {
+    display: flex; flex-wrap: wrap; align-items: center; /* Alinea los elementos verticalmente en el centro */ justify-content: center; /* Alinea los elementos horizontalmente en el centro */ max-width: 1200px; margin: 0 auto; /* Centro horizontalmente el contenedor */ padding: 20px;
+}
+.como-funciona{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+}
+
+.imagen-container {
+    flex: 1;
+    max-width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.imagen-como-funciona {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+
+.call-img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.texto-content {
+    flex: 1;
+    max-width: 45%;
+    padding: 20px;
+    color: #696984;
+}
+
+.lista-pasos {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-pasos li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.lista-pasos i {
+    width: 40px;
+    height: 40px;
+    margin-top: 15px;
+    margin-right: 10px;
+    color: #2F327D; 
+}
+
+.cta {
+    background-image: url('Imagenes/CTA.webp');
+    /*background-attachment: fixed;*/
+    background-size: cover;
+    background-position: center;
+    color: white; 
+    padding: 20px;
+    text-align: center; 
+    margin: 20px 0;
+    border-radius: 5px; 
+}
+.cta h2, .cta p {
+    color: #ffffff;
+}
+
+.btn-cta {
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border: 2px solid rgba(28, 216, 237, 0.9);
+    border-radius: 80px;
+    background-color: rgba(28, 216, 237, 0.9);
+    color: #FFFFFF;
+    transition: background-color 0.3s, transform 0.3s;
+}
