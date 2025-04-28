@@ -1,20 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>cita</title>
+    <title>Reservar Cita</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            box-sizing: border-box;
+        }
+
+        label {
+            font-size: 16px;
+            margin-bottom: 8px;
+            display: block;
+            color: #333;
+        }
+
+        input[type="datetime-local"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+    </style>
 </head>
+
 <body>
     <form method="POST" action="registrar_cita.php">
         <label for="fecha">Fecha y hora de la cita:</label>
         <input type="datetime-local" name="fecha" required>
     
-      <label for="motivo">Motivo de la cita:</label>
+        <label for="motivo">Motivo de la cita:</label>
         <textarea name="motivo" required></textarea>
 
         <input type="submit" value="Reservar Cita">
     </form>
-<body>
+</body>
+</html>
+
