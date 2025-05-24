@@ -61,15 +61,28 @@ $citas = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <td><?= htmlspecialchars($cita['motivo']) ?></td>
             <td><?= ucfirst(htmlspecialchars($cita['estado'])) ?></td>
             <td>
-                <?php if (in_array($cita['estado'], ['pendiente', 'aceptada'])): ?>
-                    <form method="post" action="cancelar_cita.php" onsubmit="return confirm('¿Estás seguro de cancelar esta cita?');">
+                <?php if ($cita['estado'] === 'pendiente'): ?>
+                    <form method="post" action="actualizar_estado_cita.php" style="display:inline;">
                         <input type="hidden" name="id_cita" value="<?= $cita['id_cita'] ?>">
-                        <button type="submit">Cancelar</button>
+                        <input type="hidden" name="nuevo_estado" value="confirmada">
+                        <button type="submit" class="btn-confirmar">Confirmar</button>
+                    </form>
+                    <form method="post" action="actualizar_estado_cita.php" style="display:inline;">
+                        <input type="hidden" name="id_cita" value="<?= $cita['id_cita'] ?>">
+                        <input type="hidden" name="nuevo_estado" value="cancelada">
+                        <button type="submit" class="btn-cancelar">Cancelar</button>
+                    </form>
+                <?php elseif ($cita['estado'] === 'confirmada'): ?>
+                    <form method="post" action="actualizar_estado_cita.php" style="display:inline;">
+                        <input type="hidden" name="id_cita" value="<?= $cita['id_cita'] ?>">
+                        <input type="hidden" name="nuevo_estado" value="finalizada">
+                        <button type="submit" class="btn-finalizar">Finalizar</button>
                     </form>
                 <?php else: ?>
                     No disponible
                 <?php endif; ?>
             </td>
+
         </tr>
         <?php endforeach; ?>
     </table>
