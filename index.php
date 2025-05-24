@@ -27,7 +27,7 @@
                         <a href="singin.html">
                             <button class="login-btn">Iniciar sesión</button>
                         </a>
-                        <a href="singup.html">
+                        <a href="singup0.php">
                             <button class="signup-btn">Registrarse</button>
                         </a>
                     </div>
@@ -38,7 +38,13 @@
         
                          <!-- Menú desplegable -->
                         <div id="user-menu" class="dropdown-menu">
-                            <a href="mis_citas_pacientes.php">Mis citas</a>
+                            <?php if (isset($_COOKIE['rol']) && $_COOKIE['rol'] === 'cliente') { ?>
+                                <a href="mis_citas_pacientes.php">Mis citas</a>
+                            <?php } ?>
+                            <?php if (isset($_COOKIE['rol']) && $_COOKIE['rol'] === 'dentista') { ?>
+                                <a href="ver_citas_dentista.php">Mis citas</a>
+                            <?php } ?>
+                            
                             <a href="singout.php" onclick="window.location.reload();">Cerrar sesión</a>
                         </div>
                     </div>

@@ -16,7 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $connection = new connection();
             $PDO = $connection->connect();
 
-            // Consulta combinada para voluntarios y organizaciones
             $sql = "
             SELECT id_usuario, nombre, correo, telefono, contrasena, rol FROM usuarios WHERE correo = :correo
             ";

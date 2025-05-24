@@ -3,55 +3,60 @@
 require_once 'connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Recibir datos del formulario
     $password = $_POST['contrasena'];
     $password_confirm = $_POST['confirmar-contrasena'];
-   // $tipo_usuario = $_POST['tipo_usuario'];  // Tipo de usuario: voluntario u organizacion
     $correo = $_POST['correo'];
+    $rol = $_POST['rol'];
 
-    // Verificar que las contraseñas coincidan
     if ($password !== $password_confirm) {
-        die("Las contrasenias no coinciden.");
+        die("Las contraseñas no coinciden.");
     }
 
-    // Encriptar la contraseña
     $password_encriptada = password_hash($password, PASSWORD_BCRYPT);
 
-    // Conexión a la base de datos
     try {
         $connection = new connection();
         $PDO = $connection->connect();
 
-        // Insertar en la tabla correspondiente dependiendo del tipo de usuario
-            $nombre = $_POST['Nombre'];
-            $telefono = $_POST['telefono'];
+        $nombre = $_POST['Nombre'];
+        $telefono = $_POST['telefono'];
 
-            // Preparar la consulta SQL para insertar un nuevo voluntario
-            $sql = "INSERT INTO usuarios (nombre, correo, telefono, contrasena) 
-                    VALUES (:nombre, :correo, :telefono, :contrasena)";
-        
-            // Preparar la declaración
-            $stmt = $PDO->prepare($sql);
-            $stmt->bindParam(':nombre', $nombre);
-            $stmt->bindParam(':correo', $correo);
-            $stmt->bindParam('telefono', $telefono);
-            $stmt->bindParam(':contrasena', $password_encriptada);
+        // Base SQL
+        $sql = "INSERT INTO usuarios (nombre, correo, telefono, contrasena, rol";
 
-        
+        // Si es dentista, añadir clínica
+        if ($rol === 'dentista') {
+            $sql .= ", id_clinica";
+        }
 
-    } catch (\Throwable $th) {
-        die("Error de conexión: " . $th->getMessage());
-    }
+        $sql .= ") VALUES (:nombre, :correo, :telefono, :contrasena, :rol";
 
-    // Ejecutar la consulta y verificar si fue exitosa
-    try {
+        if ($rol === 'dentista') {
+            $sql .= ", :id_clinica";
+        }
+
+        $sql .= ")";
+
+        $stmt = $PDO->prepare($sql);
+
+        $stmt->bindParam(':nombre', $nombre);
+        $stmt->bindParam(':correo', $correo);
+        $stmt->bindParam(':telefono', $telefono);
+        $stmt->bindParam(':contrasena', $password_encriptada);
+        $stmt->bindParam(':rol', $rol);
+
+        if ($rol === 'dentista') {
+            $id_clinica = $_POST['clinica'];
+            $stmt->bindParam(':id_clinica', $id_clinica);
+        }
+
         $stmt->execute();
+
         echo "<script>
-        alert('usuario registrado coreectamente');
+        alert('Usuario registrado correctamente');
         window.location.href = 'singin.html';
         </script>";
 
-       // echo "Nuevo registro creado con éxito";
     } catch (\PDOException $e) {
         echo "Error al registrar el usuario: " . $e->getMessage();
     }

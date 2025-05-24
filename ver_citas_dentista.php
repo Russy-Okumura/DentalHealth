@@ -1,7 +1,7 @@
 <?php
 require_once 'connection.php';
 
-if (!isset($_COOKIE['id_usuario']) || $_COOKIE['rol'] !== 'cliente') {
+if (!isset($_COOKIE['id_usuario']) || $_COOKIE['rol'] !== 'dentista') {
     die('Acceso denegado');
 }
 
@@ -17,11 +17,11 @@ $stmt = $PDO->prepare("
         citas.fecha,
         citas.motivo,
         citas.estado,
-        u_dentista.nombre AS dentista
+        u_cliente.nombre AS paciente
     FROM citas
     INNER JOIN usuarios AS u_cliente ON citas.id_usuario = u_cliente.id_usuario
     LEFT JOIN usuarios AS u_dentista ON citas.id_dentista = u_dentista.id_usuario
-    WHERE citas.id_usuario = :id_usuario
+    WHERE citas.id_dentista = :id_usuario
 ");
 
 $stmt->execute(['id_usuario' => $id_usuario]);
@@ -47,7 +47,7 @@ $citas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <table>
         <tr>
-            <th>Dentista</th>
+            <th>Paciente</th>
             <th>Fecha</th>
             <th>Motivo</th>
             <th>Estado</th>
@@ -56,7 +56,7 @@ $citas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         <?php foreach ($citas as $cita): ?>
         <tr>
-            <td><?= htmlspecialchars($cita['dentista']) ?></td>
+            <td><?= htmlspecialchars($cita['paciente']) ?></td>
             <td><?= htmlspecialchars($cita['fecha']) ?></td>
             <td><?= htmlspecialchars($cita['motivo']) ?></td>
             <td><?= ucfirst(htmlspecialchars($cita['estado'])) ?></td>
