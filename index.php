@@ -18,9 +18,9 @@
         <div>
             <nav>
                 <ul>
-                    <li><a href="cita.html">Agenda tu cita</a></li>
+                    <li><a href="cita.php">Agenda tu cita</a></li>
                     <li><a href="#"></a></li>
-                    <!--<li><a href="organizaciones.php">Organizaciones</a></li>-->
+                    <li><a href="#"></a></li>
                 </ul>
                 <?php if (!isset($_COOKIE['Nombre'])) { ?>
                     <div class="header-buttons">
@@ -38,7 +38,7 @@
         
                          <!-- Menú desplegable -->
                         <div id="user-menu" class="dropdown-menu">
-                            <a href="#"></a>
+                            <a href="mis_citas_pacientes.php">Mis citas</a>
                             <a href="singout.php" onclick="window.location.reload();">Cerrar sesión</a>
                         </div>
                     </div>

@@ -11,8 +11,10 @@ if (!isset($_COOKIE['id_usuario']) || !isset($_COOKIE['Nombre'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fecha = trim($_POST['fecha']);
     $motivo = trim($_POST['motivo']);
+    $dentista = trim ($_POST['id_dentista']);
+    $clinica = trim ($_POST['id_clinica']);
 
-    if (empty($fecha) || empty($motivo)) {
+    if (empty ($clinica) || empty($dentista) || empty($fecha) || empty($motivo)) {
         $error_message = "Por favor, rellene todos los campos.";
         echo $error_message;
     } else {
@@ -27,13 +29,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $usuario = $_COOKIE['id_usuario']; // Usamos el id_usuario de la cookie
 
             // Consulta para insertar la cita en la base de datos
-            $sql = "INSERT INTO citas (id_usuario, fecha, motivo) VALUES (:usuario, :fecha, :motivo)";
+            $sql = "INSERT INTO citas (id_usuario, fecha, motivo, id_dentista, id_clinica) VALUES (:usuario, :fecha, :motivo, :id_dentista, :id_clinica)";
             $stmt = $PDO->prepare($sql);
 
             // Vincular los parámetros
             $stmt->bindParam(':usuario', $usuario);
             $stmt->bindParam(':fecha', $fecha);
             $stmt->bindParam(':motivo', $motivo);
+            $stmt->bindParam(':id_dentista', $dentista);
+            $stmt->bindParam(':id_clinica', $clinica);
+echo "<pre>";
+print_r([
+    'usuario' => $usuario,
+    'fecha' => $fecha,
+    'motivo' => $motivo,
+    'id_dentista' => $dentista,
+    'id_clinica' => $clinica
+]);
+echo "</pre>";
 
             // Ejecutar la consulta
             $stmt->execute();
